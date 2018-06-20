@@ -1,4 +1,4 @@
-module.exports = function(callback, inp){
+var findDB = function(callback, inp){
         var _ = require('lodash');
 
         var mongoose = require('mongoose');
@@ -27,7 +27,6 @@ module.exports = function(callback, inp){
             callback(password['password']);
             
         })
-        
-
 }
 
+module.exports = findDB;

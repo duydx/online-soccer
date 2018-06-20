@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var handleDB = require('../handleDB.js');
+var findDB = require('../handleDB.js');
 var connectDB = require('../db-connect');
 var User = require('../user_models.js');
 
@@ -48,8 +48,12 @@ router.post('/admin', urlencodedParser, function(req, res, next){
     }
   } 
   // Connect MongoDB & verify password
-  var password = handleDB(passwordVerify, req);
+  findDB(passwordVerify, req);
 })
+
+router.post('/login', function(req, res, next) {
+  res.render('page-login',{ message: ""});
+});
 
 // Export Router
 module.exports = router;
